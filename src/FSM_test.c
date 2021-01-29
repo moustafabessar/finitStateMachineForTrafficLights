@@ -35,7 +35,6 @@ void yellow_on(void){
 	printf("yellow sign is now on\n red sign turned off!");
 }
 
-
 void (*fb[NO_OF_STATES])(void) = {red_on,yellow_on, green_on}; //array of function pointers
 
 int main(void) {
@@ -46,17 +45,15 @@ int main(void) {
 	printf("\n2- Yellow light");
 	printf("\n3- Green light\n");
 	printf("\nEnter state: ");
-	while(1){
-
+	while(1)
+	{
 	scanf("%d",&state);
 	fb[state-1]();
 	if(state == NO_OF_STATES)
 		printf("\n\nnext you should turn on %s: ", colors[0]);
-
 	else
 		printf("\n\nnext you should turn on %s: ", colors[((++state)-1)]);
 	}
-
 	return EXIT_SUCCESS;
 }
 
