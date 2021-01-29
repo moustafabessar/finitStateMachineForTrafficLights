@@ -17,46 +17,49 @@
 //defining states
 typedef enum {
 	red_state,
-	green_state,
-	yello_state
+	yellow_state,
+	green_state
 }RGB_state;
 
+RGB_state rgb;
 //Implementing states
 
-void red_on(void){
+void red_on(){
 	printf("Red sign is now on\n green sign turned off!");
+	rgb = yellow_state;
 }
 
-void green_on(void){
+void green_on(){
 	printf("green sign is now on\n yellow sign turned off!");
+	rgb = red_state;
 }
 
-void yellow_on(void){
+void yellow_on(){
 	printf("yellow sign is now on\n red sign turned off!");
+	rgb = green_state;
 }
 
-void (*fp[NO_OF_STATES])(void) = {red_on,yellow_on, green_on}; //array of function pointers
+void (*fb[NO_OF_STATES])() = {red_on,yellow_on, green_on}; //array of function pointers
 
 int main(void) {
+
 	int state;
 	const char *colors[]= {"red","yellow","green"};
+
 	printf("Press (1) or (2) or (3)");
 	printf("\n\n1- Red light");
 	printf("\n2- Yellow light");
 	printf("\n3- Green light\n");
 	printf("\nEnter state: ");
-	while(1)
-	{
+
+	while(1){
+
 	scanf("%d",&state);
-	fp[state-1]();
-	if(state == NO_OF_STATES)
-		printf("\n\nnext you should turn on %s: ", colors[0]);
-	else
-		printf("\n\nnext you should turn on %s: ", colors[((++state)-1)]);
+
+	fb[state-1]();
+
+		printf("\n\nnext you should turn on %s: ", colors[rgb]);
 	}
+
 	return EXIT_SUCCESS;
 }
-
-
-
-
