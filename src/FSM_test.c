@@ -39,7 +39,7 @@ void yellow_on(){
 	rgb = green_state;
 }
 
-void (*fb[NO_OF_STATES])() = {red_on,yellow_on, green_on}; //array of function pointers
+void (*StartFSM[NO_OF_STATES])() = {red_on,yellow_on, green_on}; //array of function pointers
 
 int main(void) {
 
@@ -56,7 +56,7 @@ int main(void) {
 	//Here i get input from the user to make a delay, the user shouldn't decide the next state. Code will tell him which state should choose
 	scanf("%d",&state);
 	
-	fb[state-1]();
+	StartFSM[state-1]();
 
 	printf("\n\nnext you should turn on %s: ", colors[rgb]);
 	}
