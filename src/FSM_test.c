@@ -58,7 +58,7 @@ int main(void) {
 	
 	fb[state-1]();
 
-		printf("\n\nnext you should turn on %s: ", colors[rgb]);
+	printf("\n\nnext you should turn on %s: ", colors[rgb]);
 	}
 
 	return EXIT_SUCCESS;
