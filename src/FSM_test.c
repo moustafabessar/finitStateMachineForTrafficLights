@@ -39,7 +39,7 @@ void yellow_on(){
 	rgb = green_state;
 }
 
-void (*StartFSM[NO_OF_STATES])() = {red_on,yellow_on, green_on}; //array of function pointers
+void (*StartFSM[NO_OF_STATES])() = {red_on,yellow_on, green_on};
 
 int main(void) {
 
